@@ -3,7 +3,7 @@ import requests
 import json
 import os
 
-token = os.environ['TOKEN']
+token = os.environ['BITLY_TOKEN']
 
 def shorten_link(token, long_url):
     url_api = "https://api-ssl.bitly.com/v4/bitlinks"
