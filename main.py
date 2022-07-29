@@ -1,6 +1,5 @@
 from dotenv import load_dotenv
 import requests
-import json
 import os
 
 def shorten_link(token, long_url):
@@ -37,7 +36,7 @@ def is_bitlink(url):
 if __name__ == "__main__":
     load_dotenv()
     token = os.environ['BITLY_TOKEN']
-    
+
     url = input('Input link: ')
 
     try:
