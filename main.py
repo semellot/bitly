@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+from urllib.parse import urlparse
 import requests
 import os
 
@@ -47,7 +48,8 @@ if __name__ == "__main__":
 
     try:
         if is_bitlink(token, url):
-            bitlink_id = url.replace("https://","")
+            parsed_url = urlparse(url)
+            bitlink_id = url_parse.netloc+url_parse.path
             count_clicks = count_clicks(token,bitlink_id)
             print(f'Count of clicks: {count_clicks}')
         else:
