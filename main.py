@@ -1,5 +1,4 @@
 from dotenv import load_dotenv
-load_dotenv()
 import requests
 import json
 import os
@@ -38,6 +37,7 @@ def is_bitlink(url):
         return True
 
 if __name__ == "__main__":
+    load_dotenv()
     url = input('Input link: ')
 
     try:
