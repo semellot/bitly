@@ -3,8 +3,6 @@ import requests
 import json
 import os
 
-token = os.environ['BITLY_TOKEN']
-
 def shorten_link(token, long_url):
     url_api = "https://api-ssl.bitly.com/v4/bitlinks"
 
@@ -38,6 +36,8 @@ def is_bitlink(url):
 
 if __name__ == "__main__":
     load_dotenv()
+    token = os.environ['BITLY_TOKEN']
+    
     url = input('Input link: ')
 
     try:
