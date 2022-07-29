@@ -3,7 +3,7 @@ import requests
 import os
 
 def shorten_link(token, long_url):
-    url_api = "https://api-ssl.bitly.com/v4/bitlinks"
+    api_url = "https://api-ssl.bitly.com/v4/bitlinks"
 
     body = {
         'long_url': long_url
@@ -18,7 +18,7 @@ def shorten_link(token, long_url):
     return json_url['link']
 
 def count_clicks(token, bitlink_id):
-    url_api = f"https://api-ssl.bitly.com/v4/bitlinks/{bitlink_id}/clicks/summary"
+    api_url = f"https://api-ssl.bitly.com/v4/bitlinks/{bitlink_id}/clicks/summary"
 
     headers = {
         'Authorization': f'Bearer {token}'
