@@ -49,7 +49,7 @@ if __name__ == "__main__":
     try:
         if is_bitlink(token, url):
             parsed_url = urlparse(url)
-            bitlink_id = url_parse.netloc+url_parse.path
+            bitlink_id = parsed_url.netloc+parsed_url.path
             count_clicks = count_clicks(token,bitlink_id)
             print(f'Count of clicks: {count_clicks}')
         else:

@@ -21,5 +21,20 @@ pip install -r requirements.txt
 TOKEN=5555555555555555555555555555555555555555
 ```
 
+## Примеры запуска скриптов
+Если нужно получить короткую ссылку:
+```
+% python main.py
+Input link: https://www.google.com/travel/
+Short link: https://bit.ly/3znGAvC
+```
+
+Если нужно получить количество кликов по короткой ссылке:
+```
+% python main.py
+Input link: https://bit.ly/3znGAvC
+Count of clicks: 2
+```
+
 ## Цель проекта
 Код написан в образовательных целях на онлайн-курсе для веб-разработчиков [dvmn.org](http://dvmn.org/).
