@@ -16,8 +16,8 @@ def shorten_link(token, long_url):
     response = requests.post(api_url, json=body, headers=headers)
     response.raise_for_status()
 
-    bitlink = response.json()
-    return bitlink['link']
+    json = response.json()
+    return json['link']
 
 
 def count_clicks(token, url):
@@ -31,9 +31,9 @@ def count_clicks(token, url):
     response = requests.get(api_url, headers=headers)
     response.raise_for_status()
 
-    bitlink = response.json()
+    json = response.json()
 
-    return bitlink['total_clicks']
+    return json['total_clicks']
 
 
 def is_bitlink(token, url):
