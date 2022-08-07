@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 from urllib.parse import urlparse
 import requests
 import os
+import argparse
 
 
 def shorten_link(token, long_url):
@@ -52,7 +53,14 @@ if __name__ == "__main__":
     load_dotenv()
     token = os.environ['BITLY_TOKEN']
 
-    url = input('Input link: ')
+    parser = argparse.ArgumentParser()
+    parser.add_argument('url', nargs='?')
+    namespace = parser.parse_args()
+
+    if namespace.url:
+        url = namespace.url
+    else:
+        url = input('Input link: ')
 
     try:
         if is_bitlink(token, url):
