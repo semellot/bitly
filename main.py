@@ -55,23 +55,20 @@ if __name__ == "__main__":
     token = os.environ['BITLY_TOKEN']
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('url', nargs='?')
-    getted_args = parser.parse_args()
+    parser.add_argument('url')
+    received_args = parser.parse_args()
 
-    if getted_args.url:
-        url = getted_args.url
+    url = received_args.url
 
-        if is_bitlink(token, url):
-            try:
-                count_clicks = count_clicks(token, url)
-            except requests.exceptions.HTTPError:
-                print("Input bad link")
-            print(f'Count of clicks: {count_clicks}')
-        else:
-            try:
-                bitlink_url = shorten_link(token, url)
-            except requests.exceptions.HTTPError:
-                print("Input bad link")
-            print(f'Short link: {bitlink_url}')
+    if is_bitlink(token, url):
+        try:
+            count_clicks = count_clicks(token, url)
+        except requests.exceptions.HTTPError:
+            print("Input bad link")
+        print(f'Count of clicks: {count_clicks}')
     else:
-        print("Add a link parameter to the script call")
+        try:
+            bitlink_url = shorten_link(token, url)
+        except requests.exceptions.HTTPError:
+            print("Input bad link")
+        print(f'Short link: {bitlink_url}')
