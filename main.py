@@ -60,16 +60,17 @@ if __name__ == "__main__":
 
     if getted_args.url:
         url = getted_args.url
+
+        try:
+            if is_bitlink(token, url):
+                count_clicks = count_clicks(token, url)
+                print(f'Count of clicks: {count_clicks}')
+            else:
+                bitlink_url = shorten_link(token, url)
+                print(f'Short link: {bitlink_url}')
+
+        except requests.exceptions.HTTPError:
+            print("Input bad link")
+
     else:
-        url = input('Input link: ')
-
-    try:
-        if is_bitlink(token, url):
-            count_clicks = count_clicks(token, url)
-            print(f'Count of clicks: {count_clicks}')
-        else:
-            bitlink_url = shorten_link(token, url)
-            print(f'Short link: {bitlink_url}')
-
-    except requests.exceptions.HTTPError:
-        print("Input bad link")
+        print("Add a link parameter to the script call")
