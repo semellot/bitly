@@ -56,10 +56,10 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument('url', nargs='?')
-    namespace = parser.parse_args()
+    getted_args = parser.parse_args()
 
-    if namespace.url:
-        url = namespace.url
+    if getted_args.url:
+        url = getted_args.url
     else:
         url = input('Input link: ')
 
